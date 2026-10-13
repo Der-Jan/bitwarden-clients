@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src https:; base-uri 'none'; form-action 'none'"
+    />
+    <title>Bitwarden mTLS Prototyp</title>
+    <style>
+      body {
+        font: 15px system-ui;
+        margin: 30px;
+        color: #192535;
+      }
+      input {
+        width: 95%;
+        padding: 8px;
+      }
+      button {
+        margin: 10px 8px 10px 0;
+        padding: 8px 14px;
+      }
+      pre {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        background: #f1f4f8;
+        padding: 16px;
+      }
+      li {
+        margin-bottom: 20px;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Self-hosted Server prüfen</h1>
+    <p>
+      Isolierter Machbarkeitsprototyp. Private Schlüssel bleiben in der Keychain. Dieser Prototyp
+      ändert keine Berechtigungen und speichert keine Serverbindung.
+    </p>
+    <label for="url">HTTPS API-Konfigurationsadresse</label>
+    <input id="url" value="https://bitwarden.jans.space/api/config" />
+    <button id="start">Verbindung prüfen</button>
+    <button id="cancel">Abbrechen</button>
+    <p id="status" role="status">
+      Bereit. Für jeden neuen Test die App neu starten, um Zertifikat-Caches zu isolieren.
+    </p>
+    <ul id="candidates"></ul>
+    <pre id="result"></pre>
+    <script src="renderer.js"></script>
+  </body>
+</html>

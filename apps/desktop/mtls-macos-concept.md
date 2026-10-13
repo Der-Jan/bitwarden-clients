@@ -1,6 +1,6 @@
 # macOS desktop mTLS with Keychain identities
 
-Status: proposed design, 2026-10-12. No runtime implementation or Keychain permission changes are included.
+Status: proposed design, 2026-10-12, with an isolated feasibility prototype tested on 2026-10-13. See [the prototype report](mtls-macos-prototype-report.md) for measured results and integration gates. No production desktop integration or Keychain permission changes are included.
 
 The desktop app should let users configure a client identity while defining a self-hosted server, keep its private key in the macOS Keychain, and verify that the actual desktop TLS connection can use it. Certificate selection, private-key signing permission, and server acceptance are separate outcomes. A saved URL or an offered certificate is not proof of a working connection.
 
